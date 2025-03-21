@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading">Introduction to DOM</h1>
+    <p id="para">this is paragraph</p>
+    <img src="https://tse2.mm.bing.net/th?id=OIP.OaHWiuwB46nOfArXuanGsgHaGp&pid=Api&P=0&h=180" alt="" height="300px" width="200px" id="myImage">
+    <a id="link" href="www.facebook.com" >Visit link</a>
+    <ul id="ListItem">
+        <li>Product 1</li>
+        <li>Product 2</li>
+        <li>Product 3</li>
+    </ul>
+    <button onclick="addNewProduct()">Add New Product</button>
+    <button onclick="changeImage()">update Image</button>
+    <button onclick="changePara()">change para</button>
+    <button onclick="changeHeading()">change heading</button>
+    <button onclick="updateLink()">Change Link</button>
+    <button onclick="removeList()">Remove Product</button>
+    <script>
+        function addNewProduct(){
+            const ul=document.getElementById("ListItem")
+            const newItem=document.createElement("li")
+            newItem.innerHTML="New Product"+(ul.children.length+1)
+            ul.appendChild(newItem)
+        }
+        function removeList(){
+            const ul=document.getElementById("ListItem")
+            if(ul.children.length>0){
+                ul.removeChild(ul.lastElementChild)
+            }else{
+                alert("no product left in the list")
+            }
+            
+        }
+        function updateLink(){
+            const links=document.getElementById("link")
+            links.href="https://www.google.com"
+            links.innerHTML="Go to Google"
+            links.style.color="red"
+        }
+        function changeImage(){
+            const img= document.getElementById("myImage")
+            img.src="https://up.yimg.com/ib/th?id=OIP.0Eb1VUFSOSpcwYlahbfHLAHaHa&pid=Api&rs=1&c=1&qlt=95&w=115&h=115"
+            img.style.border="5px solid purple"
+        }
+        function changePara(){
+            const heading=document.getElementById("para")
+            heading.innerHTML="para is chaged with DOM Manipulation"
+            heading.style.color="green"
+        }
+        function changeHeading(){
+            const heading=document.getElementById("heading")
+            heading.innerHTML="Heading is changed with DOM manipulation"
+            heading.style.color="red"
+        }
+    </script>
+</body>
+</html>
