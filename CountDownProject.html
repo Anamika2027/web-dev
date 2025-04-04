@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #654ea3, #eaafc8);
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Countdown Timer</h2>
+        <input type="number" id="seconds" placeholder="Enter seconds">
+        <button onclick="startCountdown()">Start Countdown</button>
+        <h3 id="timerDisplay">00:00</h3>
+    </div>
+
+    <script>
+        let countdown;
+        function startCountdown() {
+            clearInterval(countdown);
+            let seconds = parseInt(document.getElementById("seconds").value);
+            if (isNaN(seconds) || seconds <= 0) return;
+            countdown = setInterval(() => {
+                let minutes = Math.floor(seconds / 60);
+                let secs = seconds % 60;
+                document.getElementById("timerDisplay").innerText = `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+                if (seconds <= 0) clearInterval(countdown);
+                seconds--;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
