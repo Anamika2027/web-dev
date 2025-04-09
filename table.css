@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+    background-color: pink;
+}
+
+.table-container{
+    background-color: aqua;
+    max-width: 700px;
+    overflow: hidden; /*if any part of table going outside it will hide that part*/
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+thead{
+    background-color: white;
+    color: greenyellow;
+}
+
+th,td{ /*group selector*/
+    text-align: center;
+    border: 2px solid red;
+    padding: 10px;
+}
+
+tr:hover{
+    background-color: white;
+}
+
+th{
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+tfoot{
+    background-color: rgb(76, 37, 43);
+    color:blanchedalmond;
+}
+
